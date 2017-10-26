@@ -55,11 +55,12 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><a href="about-us.html">About Us</a></li>
+                <li><a href="{{ path('checkLogin') }}">Home</a></li>
+                <li><a href="{{ path('about') }}">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="contact-us.html">Contact</a></li>
-                <li><a href="#"><i class="fa fa-user"></i>&nbsp; My Profile</a></li>
+                <li class="active"><a href="{{ path('contact') }}">Contact</a></li>
+                <li><a href="#"><i class="fa fa-user"></i>&nbsp;Profile</a></li>
+                <li><a href="{{ path('logout') }}">LogOut</a></li>
             </ul>
         </div>
     </div>

@@ -83,11 +83,11 @@ class customerDetail
      */
     public function getcustomerDetailId()
     {
-        return $this->customer_id;
+        return $this->customer_Details_Id;
     }
 
     /**
-     * Set customerId
+     * Set customer_id
      *
      * @param integer $customer_id
      *
@@ -101,7 +101,7 @@ class customerDetail
     }
 
     /**
-     * Get customerId
+     * Get customer_id
      *
      * @return int
      */

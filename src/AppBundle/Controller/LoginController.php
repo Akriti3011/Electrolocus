@@ -21,15 +21,6 @@ use Symfony\Component\HttpFoundation\Response;
 class LoginController extends Controller
 {
     /**
-     * @Route("/index" , name="index")
-     */
-    public function LoginAction()
-    {
-        return $this->render('/Home/index.html.twig');
-
-    }
-
-    /**
      * @Route("/checkLogin" , name="checkLogin")
      */
     public function checkLoginAction()
@@ -42,10 +33,8 @@ class LoginController extends Controller
             if ($customer_info != "") {
                 if ($customer_info->getPassword() == $password) {
                     $customer_id=$customer_info->getCustomerId();
-                    $customerDetail = $this->getDoctrine()->getManager()->getRepository('AppBundle:customerDetail')->findOneBy(array("customer_id" =>  $customer_id));
-               //var_dump($customerDetail);exit;
-                    return $this->render('/Profile/myProfile.html.twig',
-                        array('customerDetail' => $customerDetail)
+                    return $this->redirectToRoute('viewProfile',
+                        array('customer_id' => $customer_id)
                     );
                 } else {
 
@@ -83,6 +72,7 @@ class LoginController extends Controller
             $password = $_POST['password'];
 
             if ($email != "" && $password!="") {
+
                 $customer_info = new Customer();
                 $customer_info->setEmail($email);
                 $customer_info->setPassword($password);
@@ -94,6 +84,18 @@ class LoginController extends Controller
 
 
         }
-        return $this->redirectToRoute('index');
+        return $this->redirectToRoute('checkLogin');
+    }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+
+    public function logoutAction()
+    {
+        if (isset($_POST['logout'])){
+
+        }
+        return $this->render('/Home/index.html.twig');
     }
 }
