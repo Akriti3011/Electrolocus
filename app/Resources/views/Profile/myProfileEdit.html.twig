@@ -78,8 +78,6 @@
         </div>
 
         <div class="row" style="margin-bottom: 15px;">
-
-            <div class = "col-md-6 col-sm-12">
                 <div class="profile-card">
                     <div class="profile-header">
                         <h3 style="color: #02b3e4">Primary Information</h3>
@@ -109,7 +107,7 @@
                                     <h4>Gender</h4>
                                 </div>
                                 <div class="col-sm-8">
-                                    <input  name="gender" class="form-control"  type="">
+                                    <input  name="gender" class="form-control"  type="text">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -137,18 +135,15 @@
                                 </div>
                             </div>
 
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class = "col-md-6 col-sm-12">
-                <div class="profile-card">
+
+
+
                     <div class="profile-header">
                         <h3 style="color:#15c26b">Secondary Information</h3>
                         <hr>
                     </div>
                     <div class="profile-body">
-                        <form class="form-horizontal login-form" action="{{ path('editProfile',{'customer_id':customer_id}) }}" method="post">
+
                             <div class="form-group">
                                 <div class="col-sm-4">
                                     <h4>Source</h4>
@@ -199,15 +194,14 @@
                             </div>
                             <input name="submit" type="submit" value="Save" class="edit btn btn-success btn-lg btn-block">
 
-                        </form>
                     </div>
+                    </form>
                 </div>
-            </div>
-
         </div>
-
     </div>
-</div>
+                    </div>
+
+
 
 <!------/myProfile-------->
 

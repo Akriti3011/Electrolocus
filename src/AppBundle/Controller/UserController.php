@@ -36,10 +36,10 @@ class UserController extends Controller
 
     public function editProfileAction($customer_id)
     {
-
         if (isset($_POST['submit'])) {
 
             $firstName = $_POST['firstName'];
+            echo $firstName;
             $lastName = $_POST['lastName'];
             $gender = $_POST['gender'];
             $contactNo = $_POST['contactNo'];
@@ -64,7 +64,7 @@ class UserController extends Controller
             $customerDetails_info->setAreaCode($areaCode);
             $customerDetails_info->setMeterID($meterID);
             $customerDetails_info->setConnectionType($connectionType);
-            var_dump($customerDetails_info);exit;
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($customerDetails_info);
             $em->flush();
