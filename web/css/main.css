@@ -308,6 +308,7 @@ select:-webkit-autofill {
   border: 1px solid #eee;
   box-shadow: 1px 1px 0px 0px #eeeeee;
   background-color: #FFFFFF;
+  margin-bottom: 30px;
 }
 
 .myProfile .profile-body{

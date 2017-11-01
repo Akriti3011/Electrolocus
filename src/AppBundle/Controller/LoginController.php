@@ -25,7 +25,6 @@ class LoginController extends Controller
      */
     public function checkLoginAction()
     {
-
         if (isset($_POST['submit'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -33,6 +32,8 @@ class LoginController extends Controller
             if ($customer_info != "") {
                 if ($customer_info->getPassword() == $password) {
                     $customer_id=$customer_info->getCustomerId();
+                    $_SESSION["customer_id"] = $customer_id;
+                    $_SESSION["email"] = $customer_info->getEmail();
                     return $this->redirectToRoute('viewProfile',
                         array('customer_id' => $customer_id)
                     );
@@ -94,8 +95,10 @@ class LoginController extends Controller
     public function logoutAction()
     {
         if (isset($_POST['logout'])){
-
+            session_unset();
+            session_destroy();
+            return $this->redirectToRoute('checkLogin');
         }
-        return $this->render('/Home/index.html.twig');
+        return $this->redirectToRoute('checkLogin');
     }
 }

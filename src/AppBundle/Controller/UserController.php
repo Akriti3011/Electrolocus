@@ -27,29 +27,28 @@ class UserController extends Controller
         $customerDetail = $this->getDoctrine()->getManager()->getRepository('AppBundle:customerDetail')->findOneBy(array("customer_id" =>  $customer_id));
         //var_dump($customerDetail);exit;
         return $this->render('/Profile/myProfile.html.twig',
-            array('customerDetail' => $customerDetail,'customer_id'=>$customer_id));
+            array('customerDetail' => $customerDetail,'session'=>$_SESSION));
     }
 
     /**
-     * @Route("/editProfile/{customer_id}" , name="editProfile")
+     * @Route("/addProfile/{customer_id}" , name="addProfile")
      */
 
-    public function editProfileAction($customer_id)
+    public function addProfileAction($customer_id)
     {
+        $customerDetail = $this->getDoctrine()->getManager()->getRepository('AppBundle:customerDetail')->findOneBy(array("customer_id" =>  $customer_id));
         if (isset($_POST['submit'])) {
-
             $firstName = $_POST['firstName'];
-            echo $firstName;
             $lastName = $_POST['lastName'];
             $gender = $_POST['gender'];
-            $contactNo = $_POST['contactNo'];
+            $contactNo = $_POST['contact'];
             $address = $_POST['address'];
-            // $email = $_POST['email'];
+            $email = $_POST['email'];
             $source = $_POST['source'];
             $purpose = $_POST['purpose'];
-            $electricityLoad = $_POST['electricityLoad'];
+            $electricityLoad = $_POST['load'];
             $areaCode = $_POST['areaCode'];
-            $meterID = $_POST['meterID'];
+            $meterID = $_POST['meterId'];
             $connectionType = $_POST['connectionType'];
             $customerDetails_info = new customerDetail();
             $customerDetails_info->setCustomerId($customer_id);
@@ -70,7 +69,54 @@ class UserController extends Controller
             $em->flush();
             return $this->redirectToRoute('viewProfile',array('customer_id'=>$customer_id));
         }
-        return $this->render('/Profile/myProfileEdit.html.twig',array('customer_id'=>$customer_id));
+        return $this->render('/Profile/myProfileEdit.html.twig',array('customerDetail' => $customerDetail,'session'=>$_SESSION));
     }
+
+    /**
+     * @Route("/updateProfile/{customer_id}" , name="updateProfile")
+     */
+
+    public function updateProfileAction($customer_id)
+    {
+        $customerDetail = $this->getDoctrine()->getManager()->getRepository('AppBundle:customerDetail')->findOneBy(array("customer_id" =>  $customer_id));
+        if (isset($_POST['submit'])) {
+            $firstName = $_POST['firstName'];
+            $lastName = $_POST['lastName'];
+            $gender = $_POST['gender'];
+            $contactNo = $_POST['contact'];
+            $address = $_POST['address'];
+            $email = $_POST['email'];
+            $source = $_POST['source'];
+            $purpose = $_POST['purpose'];
+            $electricityLoad = $_POST['load'];
+            $areaCode = $_POST['areaCode'];
+            $meterID = $_POST['meterId'];
+            $connectionType = $_POST['connectionType'];
+            $customerDetails_info = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('AppBundle:customerDetail')
+                    ->findOneBy(array("customer_id"=>$customer_id));
+
+            $customerDetails_info->setCustomerId($customer_id);
+            $customerDetails_info->setFirstName($firstName);
+            $customerDetails_info->setLastName($lastName);
+            $customerDetails_info->setGender($gender);
+            $customerDetails_info->setContactNo($contactNo);
+            $customerDetails_info->setAddress($address);
+            $customerDetails_info->setSource($source);
+            $customerDetails_info->setPurpose($purpose);
+            $customerDetails_info->setElectricityLoad($electricityLoad);
+            $customerDetails_info->setAreaCode($areaCode);
+            $customerDetails_info->setMeterID($meterID);
+            $customerDetails_info->setConnectionType($connectionType);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($customerDetails_info);
+            $em->flush();
+            return $this->redirectToRoute('viewProfile',array('customer_id'=>$customer_id));
+        }
+        return $this->render('/Profile/myProfileEdit.html.twig',array('customerDetail' => $customerDetail,'session'=>$_SESSION));
+    }
+
 
 }

@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 <html lang="en">
 
 <head>
@@ -16,19 +20,20 @@
     <title>Electrolocus</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet"/>
 
     <!-- Custom CSS -->
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet"/>
 
     <script src="{{ asset('//use.edgefonts.net/bebas-neue.js') }}"></script>
 
     <!-- Custom Fonts & Icons -->
-    <link href="{{ asset('http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800') }}" rel="stylesheet" />
-    <link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/icomoon-social.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800') }}" rel="stylesheet"/>
+    <link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('css/icomoon-social.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet"/>
 
     <script src="{{ asset('js/modernizr-2.6.2-respond-1.1.0.min.js') }}"></script>
 
@@ -37,7 +42,9 @@
 
 <body>
 <!--[if lt IE 7]>
-<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
 <![endif]-->
 
 
@@ -74,137 +81,158 @@
 
         <div class="logo">
             <h4><b>Account</b>
-                <span class="green"><br>Akriti</span> </h4><hr>
+                <span class="green"><br>Akriti</span></h4>
+            <hr>
         </div>
 
-        <div class="row" style="margin-bottom: 15px;">
-                <div class="profile-card">
+
+
+            <form class="form-horizontal login-form" action="{% if customerDetail is defined and customerDetail is not empty %}
+                                          {{ path('updateProfile',{'customer_id':session.customer_id}) }} {% else %}
+                                           {{ path('addProfile',{'customer_id':session.customer_id}) }} {% endif %}"
+                  method="post">
+                <div class="row" style="margin: 15px;">
+                <div class="profile-card col-sm-12">
                     <div class="profile-header">
                         <h3 style="color: #02b3e4">Primary Information</h3>
                         <hr>
 
                     </div>
                     <div class="profile-body">
-                        <form class="form-horizontal login-form" action="{{ path('editProfile',{'customer_id':customer_id}) }}" method="post">
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>First Name</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="firstName" class="form-control"  type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>Last Name</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="lastName" class="form-control"  type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>Gender</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="gender" class="form-control"  type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>Contact</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="contact" class="form-control"  type="tel">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>Address</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="address" class="form-control"  type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>E-mail id</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="email" class="form-control"  type="email">
-                                </div>
-                            </div>
 
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>First Name</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="firstName" class="form-control" type="text"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.firstName}}{%endif%}" required />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>Last Name</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="lastName" class="form-control" type="text"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.lastName}}{%endif%}" required />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>Gender</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="gender" class="form-control" type="text"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.gender}}{%endif%}" required />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>Contact</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="contact" class="form-control" type="tel"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.contactNo}}{%endif%}" required />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>Address</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="address" class="form-control" type="text"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.address}}{%endif%}" required />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>E-mail id</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="email" class="form-control" type="email"
+                                       value="{{session.email}}" required />
+                            </div>
+                        </div>
 
-
-
+                    </div>
+                </div>
+                <div class="profile-card col-sm-12">
                     <div class="profile-header">
                         <h3 style="color:#15c26b">Secondary Information</h3>
                         <hr>
                     </div>
                     <div class="profile-body">
 
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>Source</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="source" class="form-control"  type="text">
-                                </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>Source</h4>
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>Purpose</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="purpose" class="form-control"  type="text">
-                                </div>
+                            <div class="col-sm-8">
+                                <input name="source" class="form-control" type="text"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.source}}{%endif%}" required />
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>Load</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="load" class="form-control"  type="number">
-                                </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>Purpose</h4>
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>Area Code</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="contact" class="form-control"  type="text">
-                                </div>
+                            <div class="col-sm-8">
+                                <input name="purpose" class="form-control" type="text"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.purpose}}{%endif%}" required />
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>Meter id</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="address" class="form-control"  type="text">
-                                </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>Load</h4>
                             </div>
-                            <div class="form-group">
-                                <div class="col-sm-4">
-                                    <h4>Connection Type</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input  name="connectionType" class="form-control"  type="text">
-                                </div>
+                            <div class="col-sm-8">
+                                <input name="load" class="form-control" type="number"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.electricityLoad}}{%endif%}" required />
                             </div>
-                            <input name="submit" type="submit" value="Save" class="edit btn btn-success btn-lg btn-block">
-
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>Area Code</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="areaCode" class="form-control" type="text"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.areaCode}}{%endif%}" required />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>Meter id</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="meterId" class="form-control" type="text"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.meterId}}{%endif%}" required />
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <div class="col-sm-4">
+                                <h4>Connection</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <input name="connectionType" class="form-control" type="text"
+                                       value="{% if customerDetail is defined and customerDetail is not empty %}{{customerDetail.connectionType}}{%endif%}" required />
+                            </div>
+                        </div>
                     </div>
-                    </form>
                 </div>
         </div>
-    </div>
-                    </div>
+                        <input name="submit" type="submit" value="{% if customerDetail is defined and customerDetail is not empty %}Update
+                                                      {% else %}Save{% endif %}" class="edit btn btn-success btn-lg btn-block" style="text-align: center;">
 
+
+            </form>
+
+
+</div>
+</div>
 
 
 <!------/myProfile-------->
-
 
 
 <!-- Footer -->
@@ -224,7 +252,8 @@
             </div>
             <div class="col-footer col-md-4 col-xs-6">
                 <h3>Our Social Networks</h3>
-                <p>We are always there to stay connected. Reach us through various social media platform. Your views and suggestions are welcome.</p>
+                <p>We are always there to stay connected. Reach us through various social media platform. Your views and
+                    suggestions are welcome.</p>
                 <div>
                     <img src="img/icons/facebook.png" width="32" alt="Facebook">
                     <img src="img/icons/twitter.png" width="32" alt="Twitter">
@@ -234,14 +263,16 @@
             </div>
             <div class="col-footer col-md-4 col-xs-6">
                 <h3>About Our Project</h3>
-                <p>Electrolocus is an idea that focuses on the stressful question of our daily life "How to reduce our electricty bill".
+                <p>Electrolocus is an idea that focuses on the stressful question of our daily life "How to reduce our
+                    electricty bill".
                     Here we present various aspects at a single platform that will let you judge your needs better.</p>
             </div>
 
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="footer-copyright">&copy; 2017 <a href="http://www.github.com/Akriti3011/Electrolocus">IIITV Students</a></div>
+                <div class="footer-copyright">&copy; 2017 <a href="http://www.github.com/Akriti3011/Electrolocus">IIITV
+                        Students</a></div>
             </div>
         </div>
     </div>
