@@ -64,7 +64,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ path('checkLogin') }}">Home</a></li>
                 <li><a href="{{ path('about') }}">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="{{ path('service') }}">Services</a></li>
                 <li><a href="{{ path('contact') }}">Contact</a></li>
                 <li class="active"><a href="#"><i class="fa fa-user"></i>&nbsp;Profile</a></li>
                 <li><a href="{{ path('logout') }}">LogOut</a></li>
@@ -81,15 +81,16 @@
 
         <div class="logo">
             <h4><b>Account</b>
-                <span class="green"><br>Akriti</span></h4>
+                <span class="green"><br>{% if customerDetail is defined and customerDetail is not empty %}
+              {{customerDetail.firstName}}{% else %}{{ app.session.get('email') }}{%endif%}</span></h4>
             <hr>
         </div>
 
 
 
             <form class="form-horizontal login-form" action="{% if customerDetail is defined and customerDetail is not empty %}
-                                          {{ path('updateProfile',{'customer_id':session.customer_id}) }} {% else %}
-                                           {{ path('addProfile',{'customer_id':session.customer_id}) }} {% endif %}"
+                                          {{ path('updateProfile',{'customer_id':app.session.get('customer_id')}) }} {% else %}
+                                           {{ path('addProfile',{'customer_id':app.session.get('customer_id')}) }} {% endif %}"
                   method="post">
                 <div class="row" style="margin: 15px;">
                 <div class="profile-card col-sm-12">
@@ -151,7 +152,7 @@
                             </div>
                             <div class="col-sm-8">
                                 <input name="email" class="form-control" type="email"
-                                       value="{{session.email}}" required />
+                                       value="{{app.session.get('email')}}" required />
                             </div>
                         </div>
 

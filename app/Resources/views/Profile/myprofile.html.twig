@@ -57,7 +57,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ path('checkLogin') }}">Home</a></li>
                 <li><a href="{{ path('about') }}">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="{{ path('service') }}">Services</a></li>
                 <li><a href="{{ path('contact') }}">Contact</a></li>
                 <li class="active"><a href="#"><i class="fa fa-user"></i>&nbsp;Profile</a></li>
                 <li><a href="{{ path('logout') }}">LogOut</a></li>
@@ -114,7 +114,7 @@
                             </tr>
                             <tr>
                                 <td class="title">E-mail id</td>
-                                <td>{{session.email}} </td>
+                                <td>{{app.session.get('email')}} </td>
                             </tr>
 
                         </table>
@@ -159,14 +159,14 @@
             </div>
         </div>
 
-        <a href="{{path('updateProfile',{'customer_id':session.customer_id})}}"><input name="submit" type="submit" value="Edit" class="edit btn btn-success btn-lg btn-block"></a>
+        <a href="{{path('updateProfile',{'customer_id':app.session.get('customer_id')})}}"><input name="submit" type="submit" value="Edit" class="edit btn btn-success btn-lg btn-block"></a>
             {% else %}
                 <div class="logo">
                     <h4><b>Account</b>
-                        <span class="green"><br>{{ session.email }}</span> </h4><hr>
+                        <span class="green"><br>{{ app.session.get('email') }}</span> </h4><hr>
                     No details found!!
                 </div>
-                <a href="{{path('addProfile',{'customer_id':session.customer_id})}}"><input name="submit" type="submit" value="Edit" class="edit btn btn-success btn-lg btn-block"></a>
+                <a href="{{path('addProfile',{'customer_id':app.session.get('customer_id')})}}"><input name="submit" type="submit" value="Edit" class="edit btn btn-success btn-lg btn-block"></a>
 
         {% endif %}
     </div>

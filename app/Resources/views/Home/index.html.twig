@@ -1,7 +1,3 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -61,7 +57,7 @@ session_start();
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="{{ path('checkLogin') }}">Home</a></li>
                 <li><a href="{{ path('about') }}">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="{{ path('service') }}">Services</a></li>
                 <li><a href="{{ path('contact') }}">Contact</a></li>
                 <li><a href="#"><i class="fa fa-user"></i>&nbsp;Profile</a></li>
                 <li><a href="{{ path('logout') }}">LogOut</a></li>
@@ -74,7 +70,7 @@ session_start();
 
 
 <section id="main-slider" class="no-margin">
-    <div class="item active" style="background-image: url(img/slides/2.jpg);">
+    <div class="item active" style="background-image: url('img/slides/2.jpg');background-size: cover;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4"></div>
