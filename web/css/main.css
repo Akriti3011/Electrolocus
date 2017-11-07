@@ -114,58 +114,6 @@ a:hover {
   text-decoration:none;
   outline: 0;
 }
-/*--------------------------------------------------------------------------
-+	Services Style
---------------------------------------------------------------------------*/
-/* Multicolumn */
-.service-wrapper {
-  text-align: center;
-  background-color: #ffffff;
-  margin-bottom:30px;
-  border-radius:50%;
-  width: 140px;
-  height: 140px;
-  opacity: 0.8;
-}
-.service-wrapper h3 {
-  font-size: 1.2em;
-  margin: 10px 0 !important;
-}
-.service-wrapper p {
-  margin-top: 0;
-}
-.service-wrapper i {
-	font-size:54px;
-  color: #000000;
-  margin-top: 30px;
-}
-/* Row */
-.service-wrapper-row {
-  padding: 10px 0;
-}
-.service-wrapper-row h3 {
-  padding-top: 15px;
-}
-.service-wrapper-row .service-image {
-  padding-top: 15px;
-  text-align: center;
-}
-.service-wrapper-row .service-image img {
-  max-width: 80%;
-  vertical-align: bottom;
-  bottom: 0;
-  border: 7px solid #FFF;
-  -webkit-border-radius: 5px;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 5px;
-  -moz-background-clip: padding;
-  border-radius: 5px;
-  background-clip: padding-box;
-  -webkit-box-shadow: 0 0 8px #999;
-  -moz-box-shadow: 0 0 8px #999;
-  box-shadow: 0 0 8px #999;
-  color: 0 0 8px #999;
-}
 
 
 /***************Login********************/
@@ -794,5 +742,63 @@ services
 }
 
 .card-body p{
+
+}
+
+#service {
+  padding: 120px 0px;
+  text-align: center;
+  background-image: url("../img/slides/1.jpg ");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#service h2{
+  color: #02b3e4;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 30px;
+  padding-bottom: 80px;
+}
+#service .service-item {
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+#service .service-item .icon {
+  background: linear-gradient(#15d67d,#2e3d49);
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  text-align: center;
+  line-height: 80px;
+  border-radius: 50%;
+}
+
+#service .service-item i{
+  font-size: 50px;
+  margin-top:25px;
+  color:#FFFFFF;
+}
+#service .service-item h4 {
+  margin-bottom: 30px;
+  margin-top: 45px;
+  font-size: 19px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color:#FFFFFF;
+  letter-spacing: 1px;
+}
+
+#service .service-item p {
+  color:#FFFFFF;
+  margin-top: 20px;
+ }
+
+#service .service-item .btn {
+  margin-top: 25px;
+  border-radius: 35px;
 
 }
