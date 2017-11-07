@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: AKRITI
  * Date: 13-10-2017
  * Time: 12:08
  */
-
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\customer;
@@ -17,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class LoginController extends Controller
 {
@@ -25,6 +26,10 @@ class LoginController extends Controller
      */
     public function checkLoginAction()
     {
+       //$session = new Session();
+       //$session->start();
+        $request = Request::createFromGlobals();
+        $session = $request->getSession();
         if (isset($_POST['submit'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
@@ -32,8 +37,8 @@ class LoginController extends Controller
             if ($customer_info != "") {
                 if ($customer_info->getPassword() == $password) {
                     $customer_id=$customer_info->getCustomerId();
-                    $_SESSION["customer_id"] = $customer_id;
-                    $_SESSION["email"] = $customer_info->getEmail();
+                    $this->get('session')->set('customer_id',$customer_id);
+                    $this->get('session')->set('email',$customer_info->getEmail());
                     return $this->redirectToRoute('viewProfile',
                         array('customer_id' => $customer_id)
                     );
