@@ -466,66 +466,39 @@ contact
 --------------------------------------------------------------------------*/
 .footer {
   background:#1c262f;
-  color: #fafbfc;
-  padding: 0 20px 10px 20px;
-  border-top: 4px solid #fafbfc;
+  color: #959595;
+  padding: 30px 20px 40px 20px;
+  border-top: 2px solid #585858;
   margin-top: -5px;
   -webkit-box-shadow: 0 -1px 12px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 -1px 12px rgba(0,0,0,0.4);
   box-shadow: 0 -1px 12px rgba(0,0,0,0.4);
-  color: 0 -1px 12px rgba(0,0,0,0.4);
 }
 .footer h3 {
-  color: #E4E4E4;
+  color: #b8b8b8;
   font-size: 1.3em;
-  border-bottom: 1px dotted #525c65;
+  font-weight: 100;
+  letter-spacing: 1.5px;
 }
-.footer ul {
-  padding: 0;
+.footer h3 span {
+  color: #52dbff;
+  font-size: 1.4em;
+  font-weight: 100;
 }
-.footer-navigate-section li {
-  line-height: 20px !important;
-}
-.footer-stay-connected a {
-  text-align: left;
-  text-indent: -9999px;
-  display: block;
-  width: 115px;
-  height: 40px;
-  background: url(../img/stay-connected.png);
-  -webkit-opacity: 0.5;
-  -moz-opacity: 0.5;
-  opacity: 0.5;
-  -webkit-transition: opacity .25s linear;
-  -moz-transition: opacity .25s linear;
-  -o-transition: opacity .25s linear;
-  -ms-transition: opacity .25s linear;
-  transition: opacity .25s linear;
-}
-.footer-stay-connected a:hover {
-  -webkit-opacity: 1;
-  -moz-opacity: 1;
-  opacity: 1;
-}
-.footer-stay-connected a.facebook {
-  background-position: -115px 0;
-}
-.footer-stay-connected a.twitter {
-  background-position: -230px 0;
-}
-.footer-stay-connected a.googleplus {
-  background-position: 0 0;
-}
-.footer-stay-connected li {
+.connect-us a {
+  display: inline-block;
+  margin-right: 10px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
   text-align: center;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  color: #373a3c;
+  font-size: 15px;
+  transition: all 0.3s;
 }
-.footer-copyright {
-  text-align: center;
-  color: #cbcbcb;
-  border-top: 1px dotted #525c65;
-  padding-top: 10px;
-  font-size: 0.9em;
-}
+
 /*--------------------------------------------------------------------------
 +	Pagination Style (overrides Bootstrap style)
 --------------------------------------------------------------------------*/
@@ -619,7 +592,7 @@ contact
   white-space: nowrap;
 }
 .btn:hover {
-  background: none repeat scroll 0 0 #3b3c41;
+  background: none repeat scroll 0 0 #105b7b;
   color: #FFF;
   text-decoration: none;
   border: 1px solid #3b3c41;
@@ -746,9 +719,10 @@ services
 }
 
 #service {
-  padding: 120px 0px;
+  padding-top: 120px;
+  padding-bottom: 40px;
   text-align: center;
-  background-image: url("../img/slides/1.jpg ");
+  background-image: url("../img/slides/4.jpg ");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -787,18 +761,39 @@ services
   margin-top: 45px;
   font-size: 19px;
   text-transform: uppercase;
-  font-weight: 500;
-  color:#FFFFFF;
+  font-weight: 600;
+  color:#2e3d49;
   letter-spacing: 1px;
 }
 
 #service .service-item p {
-  color:#FFFFFF;
+  color:#105b7b;
   margin-top: 20px;
+  font-weight: 600;
  }
 
 #service .service-item .btn {
   margin-top: 25px;
   border-radius: 35px;
 
+}
+
+#service hr{
+  border-top: 1px solid #105b7b;
+}
+
+#table1 thead th{
+   font-size: 18px;
+   background:linear-gradient(#15c26b,#2e3d49);
+  color: #fafbfc;
+  text-align: center;
+  font-weight: 200;
+}
+
+#table1 tbody td{
+  font-size: 18px;
+  background-color: #fafbfc;
+  color: #02b3e4;
+  text-align: center;
+  font-weight: 200;
 }
