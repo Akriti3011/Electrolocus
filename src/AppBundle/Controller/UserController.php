@@ -28,7 +28,6 @@ class UserController extends Controller
         if($customer_id==($this->get('session')->get('customer_id')))
         {
             $customerDetail = $this->getDoctrine()->getManager()->getRepository('AppBundle:customerDetail')->findOneBy(array("customer_id" =>  $customer_id));
-            //$customer_info = $this->getDoctrine()->getManager()->getRepository('AppBundle:customer')->findOneBy(array("customer_id" =>  $customer_id));
             return $this->render('/Profile/myProfile.html.twig',
                 array('customerDetail' => $customerDetail,'session'=>$this->get('session')));
         }
