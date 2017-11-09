@@ -37,7 +37,7 @@ class customerDetail
     private $gender;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=100)
      */
     private $contactNo;
 
@@ -185,7 +185,7 @@ class customerDetail
     /**
      * Set contactNo
      *
-     * @param integer $contactNo
+     * @param string $contactNo
      *
      * @return customerDetail
      */
@@ -199,7 +199,7 @@ class customerDetail
     /**
      * Get contactNo
      *
-     * @return int
+     * @return string
      */
     public function getContactNo()
     {
