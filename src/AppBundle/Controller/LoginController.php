@@ -39,9 +39,10 @@ class LoginController extends Controller
                     $customer_id=$customer_info->getCustomerId();
                     $this->get('session')->set('customer_id',$customer_id);
                     $this->get('session')->set('email',$customer_info->getEmail());
-                    return $this->redirectToRoute('viewProfile',
-                        array('customer_id' => $customer_id)
-                    );
+                    return $this->render('Home/home.html.twig');
+//                    return $this->redirectToRoute('viewProfile',
+//                        array('customer_id' => $customer_id)
+//                    );
                 } else {
 
                     return $this->render('/Home/index.html.twig',
@@ -99,9 +100,12 @@ class LoginController extends Controller
 
     public function logoutAction()
     {
-        if (isset($_POST['logout'])){
-            session_unset();
-            session_destroy();
+        if (isset($_POST['submit'])){
+            $session = $this->get('session');
+            $ses_vars = $session->all();
+            foreach ($ses_vars as $key => $value) {
+                $session->remove($key);
+            }
             return $this->redirectToRoute('checkLogin');
         }
         return $this->redirectToRoute('checkLogin');
