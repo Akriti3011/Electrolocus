@@ -20,11 +20,22 @@ class production
      * @ORM\Column(type="string", length=100)
      */
     private $areaCode;
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $elecSource;
 
     /**
      * @ORM\Column(type="float")
      */
+
     private $elecProduced;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+
+    private $elecWastage;
 
 
     /**
@@ -62,6 +73,30 @@ class production
     }
 
     /**
+     * Set elecSource
+     *
+     * @param string $elecSource
+     *
+     * @return source
+     */
+    public function setElecSource($elecSource)
+    {
+        $this->elecSource = $elecSource;
+
+        return $this;
+    }
+
+    /**
+     * Get elecSource
+     *
+     * @return string
+     */
+    public function getElecSource()
+    {
+        return $this->elecSource;
+    }
+
+    /**
      * Set elecProduced
      *
      * @param float $elecProduced
@@ -84,5 +119,30 @@ class production
     {
         return $this->elecProduced;
     }
+
+    /**
+     * Set elecWastage
+     *
+     * @param float $elecWastage
+     *
+     * @return production
+     */
+    public function setElecWastage($elecWastage)
+    {
+        $this->elecWastage = $elecWastage;
+
+        return $this;
+    }
+
+    /**
+     * Get elecWastage
+     *
+     * @return float
+     */
+    public function getElecWastage()
+    {
+        return $this->elecWastage;
+    }
+
 }
 
