@@ -30,4 +30,12 @@ class ExtraController extends Controller
 
         return $this->render('/Contact/contact.html.twig');
     }
+
+    /**
+     *@Route("/index", name="index")
+     */
+    public function indexAction(){
+
+        return $this->render('/Home/home.html.twig');
+    }
 }
