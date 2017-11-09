@@ -352,6 +352,9 @@ about us
   line-height: 30px;
 }
 
+.about h4{
+  line-height: 25px;
+}
 
 .team-member {
   position: relative;
@@ -742,7 +745,7 @@ services
 }
 
 #service .service-item .icon {
-  background: linear-gradient(#15d67d,#2e3d49);
+  background: linear-gradient(#0b7142, #074a2b);
   width: 100px;
   height: 100px;
   display: inline-block;
@@ -784,7 +787,7 @@ services
 
 #table1 thead th{
    font-size: 18px;
-   background:linear-gradient(#15c26b,#2e3d49);
+  background: linear-gradient(#0b7142, #074a2b);
   color: #fafbfc;
   text-align: center;
   font-weight: 200;
@@ -796,4 +799,80 @@ services
   color: #02b3e4;
   text-align: center;
   font-weight: 200;
+}
+
+.quotation{
+  font-size: 58px;
+  font-family: 'Great Vibes', cursive;
+  margin: 20% auto 8%;
+  quotes: "\201C""\201D""\2018""\2019";
+  padding: -10px 0 0 30px ;
+  line-height: 1.4;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.quotation:before {
+  content: open-quote;
+  display: inline;
+  height: 0;
+  line-height: 0;
+  left: 0;
+  position: relative;
+  top: 30px;
+  color: #ffffff;
+  font-size: 2em;
+}
+.quotation::after {
+  content: close-quote;
+  display: inline;
+  height: 0;
+  line-height: 0;
+  left: 10px;
+  position: relative;
+  top: 35px;
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.btn-round{
+  border-radius: 25px;
+  background: linear-gradient(#0b7142, #074a2b);
+}
+
+.home-section{
+  background-color: #fafbfc;
+  margin: -50px 0;
+  text-align: center;
+}
+#welcome{
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  background: linear-gradient(#02b3e4,#02ccba );
+}
+#welcome .row{
+  background-color:#FFFFFF;
+  margin: 6%;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px 0px #b8b8b8;
+}
+
+#welcome h2{
+  text-align: center;
+  font-size: 36px;
+  color:  #02b3e4;
+  letter-spacing: 1px;
+  line-height: 20px;
+  text-transform: uppercase;
+  padding-top: 20px;
+}
+
+#welcome h4{
+  padding: 0 40px 0px 40px;
+  line-height: 25px;
+  color: #2e3d49;
 }
